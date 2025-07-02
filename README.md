@@ -1,10 +1,5 @@
 # Projectflow 🚀
 
-**Projectflow** is a modern, responsive, and full-featured project management platform designed to help teams plan, track, and deliver work more efficiently. It offers an intuitive UI, Kanban boards, timelines, task labels, and team collaboration — all in a sleek dark/light themed environment.
----
-
-## 📘 Projectflow Overview
-
 **Projectflow** is a modern project management platform designed for teams to plan, track, and deliver work efficiently. It features an intuitive UI with Kanban boards, timelines, task labels, team collaboration, and a responsive dark/light theme.
 
 ---
