@@ -1,52 +1,15 @@
 # Projectflow 🚀
 
 **Projectflow** is a modern, responsive, and full-featured project management platform designed to help teams plan, track, and deliver work more efficiently. It offers an intuitive UI, Kanban boards, timelines, task labels, and team collaboration — all in a sleek dark/light themed environment.
-
 ---
 
-## ✨ Features
-
-- 🧩 Task boards with drag & drop
-- 📅 Timeline view for project tracking
-- ✅ Task priorities & labels
-- 👥 User & team management
-- 🔐 Auth with AWS Cognito
-- 🌙 Light/Dark mode toggle
-- 📁 Projects list with collapsible sidebar
-
----
-
-## 🛠️ Tech Stack
-
-| Frontend         | Backend / APIs       | Auth & State         |
-|------------------|----------------------|----------------------|
-| Next.js (App Router) | REST API (custom or Amplify) | AWS Cognito + Amplify |
-| TypeScript       | AWS S3 (image storage) | Redux Toolkit        |
-| Tailwind CSS     | Prisma |
-
----
-
-## 📦 Getting Started
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/yourusername/projectflow.git
-cd projectflow
-
-
-Overview of the application.
-Collecting workspace informationHere’s a detailed summary of **Projectflow**, its architecture, features, components, and authentication flow, based on your workspace:
-
----
-
-## Projectflow Overview
+## 📘 Projectflow Overview
 
 **Projectflow** is a modern project management platform designed for teams to plan, track, and deliver work efficiently. It features an intuitive UI with Kanban boards, timelines, task labels, team collaboration, and a responsive dark/light theme.
 
 ---
 
-### Architecture
+## 🏗️ Architecture
 
 - **Frontend:** [Next.js](https://nextjs.org/) (App Router), TypeScript, Tailwind CSS, Redux Toolkit for state management.
 - **Backend:** Node.js with Express, REST API, Prisma ORM, PostgreSQL (assumed), AWS S3 for file storage.
@@ -55,93 +18,86 @@ Collecting workspace informationHere’s a detailed summary of **Projectflow**, 
 
 ---
 
-### Key Features
+## 🔑 Key Features
 
-#### 1. **Task Boards (Kanban)**
-- Drag & drop tasks between columns (statuses: To Do, Work In Progress, Under Review, Completed).
-- Each task displays title, description, priority, assignee, attachments, and comments.
+### 1. 🧩 Task Boards (Kanban)
+- Drag & drop tasks between columns (To Do, Work In Progress, Under Review, Completed).
+- Tasks include title, description, priority, assignee, attachments, and comments.
 - Implemented in `BoardView`.
 
-#### 2. **Timeline View**
-- Visualizes project tasks and deadlines on a timeline.
-- Switchable via tabs in `ProjectHeader`.
+### 2. 🗓️ Timeline View
+- Visualizes project tasks and deadlines.
+- Toggleable via tabs in `ProjectHeader`.
 
-#### 3. **Table & List Views**
-- Tabular and list representations of tasks for quick filtering and sorting.
-- Accessible via the same tabbed interface.
+### 3. 📋 Table & List Views
+- Tabular and list formats for easy filtering and sorting.
+- Accessible through a unified tabbed interface.
 
-#### 4. **Projects Management**
+### 4. 📁 Projects Management
 - Create, view, and manage multiple projects.
-- Projects are listed in the collapsible sidebar (`Sidebar`).
-- Project creation handled by `ModalNewProject`.
+- Projects are listed in a collapsible sidebar (`Sidebar`).
+- Project creation is handled by `ModalNewProject`.
 
-#### 5. **User & Team Management**
-- Users and teams are managed via dedicated pages and API endpoints.
-- Sidebar links to users and `/teams`.
+### 5. 👥 User & Team Management
+- Users and teams are managed through dedicated pages.
+- Sidebar includes links to `/users` and `/teams`.
 
-#### 6. **Search**
+### 6. 🔍 Search
 - Full-text search across tasks, projects, and users.
-- Implemented via the `/search` endpoint and UI.
+- Implemented via the `/search` endpoint and UI components.
 
-#### 7. **Authentication**
-- AWS Cognito handles user sign-up, sign-in, and session management.
-- Integrated via AWS Amplify in `authProvider.tsx`.
-- User details (profile picture, username) are fetched and displayed in the sidebar and other components.
+### 7. 🔐 Authentication
+- AWS Cognito handles user sign-up, sign-in, and sessions.
+- Integrated using AWS Amplify in `authProvider.tsx`.
+- Displays user details (profile picture, username) across UI.
 
-#### 8. **Dark/Light Mode**
-- Theme toggling is managed via Redux state and Tailwind CSS classes.
+### 8. 🌗 Dark/Light Mode
+- Theme toggling handled via Redux state and Tailwind CSS.
 
-#### 9. **Responsive Design**
-- Sidebar collapses on mobile, with a mobile footer for user info and sign out.
-
----
-
-### Component Structure
-
-- **Sidebar:** Navigation, project list, user info, sign out (`Sidebar`).
-- **Header:** Page titles and action buttons (`Header`).
-- **ProjectCard:** Displays project summary (`ProjectCard`).
-- **ModalNewProject/ModalNewTask:** Forms for creating projects and tasks.
-- **BoardView/ListView/TimelineView/TableView:** Different task visualization modes.
-- **Redux State:** API slices for projects, tasks, users, teams (`api.ts`).
+### 9. 📱 Responsive Design
+- Sidebar collapses on mobile.
+- Mobile footer includes user info and sign-out functionality.
 
 ---
 
-### Authentication Flow
+## 🧱 Component Structure
 
-1. **Sign Up/Sign In:**  
-   Users authenticate via AWS Cognito, using Amplify’s UI components.
-2. **Session Management:**  
-   Amplify manages tokens and session state. Tokens are attached to API requests for authorization.
-3. **User Data Fetching:**  
-   After login, user details are fetched from the backend and displayed in the UI.
-4. **Sign Out:**  
-   Calls Amplify’s `signOut` method, clearing session and redirecting to login.
-
----
-
-### How It Works
-
-- **Frontend** sends API requests (with Cognito JWT tokens) to the backend for all CRUD operations.
-- **Backend** validates tokens, interacts with the database via Prisma, and returns data.
-- **State** is managed globally with Redux Toolkit, and UI updates reactively as data changes.
-- **Files** (profile pictures, attachments) are stored on AWS S3 and referenced via URLs.
+| Component        | Purpose                                     |
+|------------------|---------------------------------------------|
+| `Sidebar`        | Navigation, projects list, user info        |
+| `Header`         | Page title and action buttons               |
+| `ProjectCard`    | Project summary display                     |
+| `ModalNewProject`/`ModalNewTask` | Project/task creation forms |
+| `BoardView`/`ListView`/`TimelineView`/`TableView` | Task displays |
+| `api.ts`         | API slices for tasks, users, teams, projects |
 
 ---
 
-**In summary:**  
-Projectflow is a full-stack, cloud-enabled project management tool with modern UX, real-time collaboration, and robust authentication, built for teams to manage projects efficiently.
+## 🔐 Authentication Flow
+
+1. **Sign Up / Sign In**  
+   Users log in using AWS Cognito, integrated via Amplify.
+
+2. **Session Management**  
+   Amplify manages tokens and sessions; tokens are attached to API requests.
+
+3. **User Data Fetching**  
+   After login, user profile details are fetched and shown in the UI.
+
+4. **Sign Out**  
+   Authenticated users can sign out using Amplify’s `signOut()` method.
 
 ---
 
-**Relevant files for reference:**
-- index.tsx
-- index.tsx
-- ProjectHeader.tsx
-- authProvider.tsx
-- api.ts
-- projectController.ts
-- README.md
+## ⚙️ How It Works
+
+- **Frontend:** Sends API requests (with Cognito JWTs) to the backend for CRUD operations.
+- **Backend:** Validates tokens, performs DB operations via Prisma, returns JSON.
+- **State:** Managed globally using Redux Toolkit and RTK Query.
+- **File Storage:** Profile pictures and attachments are uploaded to AWS S3 and served via URLs.
+
+---
+
 
 Screenshots 
 1.
