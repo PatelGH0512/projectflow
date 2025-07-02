@@ -46,7 +46,7 @@ const Timeline = () => {
     return <div>An error occurred while fetching projects</div>;
 
   return (
-    <div className="max-w-full p-8">
+    <div className="min-h-screen max-w-full bg-gradient-to-br from-sky-50 via-white to-blue-100 p-4 p-8 dark:from-gray-900 dark:via-black dark:to-gray-800">
       <header className="mb-4 flex items-center justify-between">
         <Header name="Projects Timeline" />
         <div className="relative inline-block w-64">

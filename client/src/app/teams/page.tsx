@@ -38,7 +38,7 @@ const Teams = () => {
   if (isError || !teams) return <div>Error fetching teams</div>;
 
   return (
-    <div className="flex w-full flex-col p-8">
+    <div className="flex min-h-screen w-full flex-col bg-gradient-to-br from-sky-50 via-white to-blue-100 p-8 dark:from-gray-900 dark:via-black dark:to-gray-800">
       <Header name="Teams" />
       <div style={{ height: 650, width: "100%" }}>
         <DataGrid

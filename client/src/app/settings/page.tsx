@@ -14,7 +14,7 @@ const Settings = () => {
     "mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 dark:text-white";
 
   return (
-    <div className="p-8">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 p-8 dark:from-gray-900 dark:via-black dark:to-gray-800">
       <Header name="Settings" />
       <div className="space-y-4">
         <div>

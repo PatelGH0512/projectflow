@@ -30,7 +30,7 @@ const Search = () => {
   }, [handleSearch.cancel]);
 
   return (
-    <div className="p-8">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-100 p-8 dark:from-gray-900 dark:via-black dark:to-gray-800">
       <Header name="Search" />
       <div>
         <input

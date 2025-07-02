@@ -92,11 +92,13 @@ const HomePage = () => {
       };
 
   return (
-    <div className="container h-full w-[100%] bg-gray-100 bg-transparent p-8">
+    <div className="min-h-screen w-full bg-gradient-to-br from-sky-50 via-white to-blue-100 p-4 dark:from-gray-900 dark:via-black dark:to-gray-800 md:p-8">
       <Header name="Project Management Dashboard" />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary">
-          <h3 className="mb-4 text-lg font-semibold dark:text-white">
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {/* Task Priority Chart */}
+        <div className="shadow-card rounded-2xl bg-white/70 p-6 backdrop-blur-lg transition hover:shadow-lg dark:bg-white/5">
+          <h3 className="mb-4 text-xl font-semibold text-gray-800 dark:text-white">
             Task Priority Distribution
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -118,8 +120,10 @@ const HomePage = () => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary">
-          <h3 className="mb-4 text-lg font-semibold dark:text-white">
+
+        {/* Project Status Pie Chart */}
+        <div className="shadow-card rounded-2xl bg-white/70 p-6 backdrop-blur-lg transition hover:shadow-lg dark:bg-white/5">
+          <h3 className="mb-4 text-xl font-semibold text-gray-800 dark:text-white">
             Project Status
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -137,8 +141,10 @@ const HomePage = () => {
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary md:col-span-2">
-          <h3 className="mb-4 text-lg font-semibold dark:text-white">
+
+        {/* Tasks DataGrid */}
+        <div className="shadow-card rounded-2xl bg-white/80 p-6 backdrop-blur-lg transition hover:shadow-lg dark:bg-white/5 md:col-span-2">
+          <h3 className="mb-4 text-xl font-semibold text-gray-800 dark:text-white">
             Your Tasks
           </h3>
           <div style={{ height: 400, width: "100%" }}>

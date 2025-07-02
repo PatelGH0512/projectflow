@@ -50,11 +50,11 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
     return title && authorUserId && !(id !== null || projectId);
   };
 
-  const selectStyles =
-    "mb-4 block w-full rounded border border-gray-300 px-3 py-2 dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-white dark:focus:outline-none";
-
   const inputStyles =
-    "w-full rounded border border-gray-300 p-2 shadow-sm dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-white dark:focus:outline-none";
+    "w-full rounded-lg border border-gray-300 bg-white/70 p-2 shadow-sm focus:outline-none transition dark:border-gray-600 dark:bg-dark-tertiary dark:text-white backdrop-blur";
+
+  const selectStyles =
+    "w-full rounded-lg border border-gray-300 bg-white/70 px-3 py-2 focus:outline-none transition dark:border-gray-600 dark:bg-dark-tertiary dark:text-white backdrop-blur";
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} name="Create New Task">
@@ -67,20 +67,20 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
       >
         <input
           type="text"
-          className={inputStyles}
+          className={`${inputStyles} focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400`}
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <textarea
-          className={inputStyles}
+          className={`${inputStyles} focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400`}
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <select
-            className={selectStyles}
+            className={`${selectStyles} focus:ring-2 focus:ring-purple-400 dark:focus:ring-purple-500`}
             value={status}
             onChange={(e) =>
               setStatus(Status[e.target.value as keyof typeof Status])
@@ -93,7 +93,7 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
             <option value={Status.Completed}>Completed</option>
           </select>
           <select
-            className={selectStyles}
+            className={`${selectStyles} focus:ring-2 focus:ring-red-300 dark:focus:ring-red-500`}
             value={priority}
             onChange={(e) =>
               setPriority(Priority[e.target.value as keyof typeof Priority])
@@ -107,38 +107,40 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
             <option value={Priority.Backlog}>Backlog</option>
           </select>
         </div>
+
         <input
           type="text"
-          className={inputStyles}
+          className={`${inputStyles} focus:ring-2 focus:ring-teal-400 dark:focus:ring-teal-500`}
           placeholder="Tags (comma separated)"
           value={tags}
           onChange={(e) => setTags(e.target.value)}
         />
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <input
             type="date"
-            className={inputStyles}
+            className={`${inputStyles} focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
           />
           <input
             type="date"
-            className={inputStyles}
+            className={`${inputStyles} focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-500`}
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
           />
         </div>
+
         <input
           type="text"
-          className={inputStyles}
+          className={`${inputStyles} focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-500`}
           placeholder="Author User ID"
           value={authorUserId}
           onChange={(e) => setAuthorUserId(e.target.value)}
         />
         <input
           type="text"
-          className={inputStyles}
+          className={`${inputStyles} focus:ring-2 focus:ring-pink-400 dark:focus:ring-pink-500`}
           placeholder="Assigned User ID"
           value={assignedUserId}
           onChange={(e) => setAssignedUserId(e.target.value)}
@@ -146,15 +148,16 @@ const ModalNewTask = ({ isOpen, onClose, id = null }: Props) => {
         {id === null && (
           <input
             type="text"
-            className={inputStyles}
-            placeholder="ProjectId"
+            className={`${inputStyles} focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500`}
+            placeholder="Project ID"
             value={projectId}
             onChange={(e) => setProjectId(e.target.value)}
           />
         )}
+
         <button
           type="submit"
-          className={`focus-offset-2 mt-4 flex w-full justify-center rounded-md border border-transparent bg-blue-primary px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+          className={`mt-4 w-full rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 font-semibold text-white shadow-lg transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-blue-500 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 ${
             !isFormValid() || isLoading ? "cursor-not-allowed opacity-50" : ""
           }`}
           disabled={!isFormValid() || isLoading}
