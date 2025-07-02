@@ -33,6 +33,7 @@ const Sidebar = () => {
 
   const { data: projects } = useGetProjectsQuery();
   const dispatch = useAppDispatch();
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed,
   );
@@ -59,7 +60,11 @@ const Sidebar = () => {
       <div className="flex min-h-[56px] items-center justify-between border-b border-gray-200 px-6 py-3 dark:border-gray-800">
         <div className="relative h-10 w-full max-w-[120px]">
           <Image
-            src="https://s3-projectflow.s3.us-east-1.amazonaws.com/logo.png"
+            src={
+              isDarkMode
+                ? "https://s3-projectflow.s3.us-east-1.amazonaws.com/logo-Dark.png"
+                : "https://s3-projectflow.s3.us-east-1.amazonaws.com/logo-Light.png"
+            }
             alt="Logo"
             sizes="(max-width: 768px) 100px, 120px"
             fill
