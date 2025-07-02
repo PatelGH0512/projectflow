@@ -57,14 +57,15 @@ const Sidebar = () => {
     <div className={sidebarClassNames}>
       {/* HEADER */}
       <div className="flex min-h-[56px] items-center justify-between border-b border-gray-200 px-6 py-3 dark:border-gray-800">
-        <div className="text-xl font-bold tracking-wide text-gray-800 dark:text-white">
+        <div className="relative h-10 w-full max-w-[120px]">
           <Image
             src="https://s3-projectflow.s3.us-east-1.amazonaws.com/logo.png"
             alt="Logo"
-            width={40}
-            height={40}
+            fill
+            className="object-contain"
           />
         </div>
+
         <button
           onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}
           className="p-1 transition hover:scale-105 hover:text-gray-500 dark:text-white"
