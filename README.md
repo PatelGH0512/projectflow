@@ -100,10 +100,10 @@
 
 
 Screenshots 
-1.
-![Screenshot 2025-07-02 at 3 48 32 PM](https://github.com/user-attachments/assets/73289b2e-af44-4361-8db6-76fa5f15923a)
-2.
-![Screenshot 2025-07-02 at 3 48 42 PM](https://github.com/user-attachments/assets/a81d2234-0a8b-4d86-8ac0-3e8e681658bb)
+1.![Screenshot 2025-07-02 at 3 48 32 PM](https://github.com/user-attachments/assets/73289b2e-af44-4361-8db6-76fa5f15923a)
+
+2.![Screenshot 2025-07-02 at 3 48 42 PM](https://github.com/user-attachments/assets/a81d2234-0a8b-4d86-8ac0-3e8e681658bb)
+
 3.![Screenshot 2025-07-02 at 3 49 31 PM](https://github.com/user-attachments/assets/8da4d254-9dbf-4e9a-bca6-6fae654bb31b)
 
 4.![Screenshot 2025-07-02 at 3 49 42 PM](https://github.com/user-attachments/assets/5c420db7-e516-4937-9065-529964395af6)
@@ -119,9 +119,8 @@ Screenshots
 9.![Screenshot 2025-07-02 at 3 50 50 PM](https://github.com/user-attachments/assets/3561ff8d-1043-4791-b462-63c96e7fab31)
 
 10.![Screenshot 2025-07-02 at 3 52 17 PM](https://github.com/user-attachments/assets/91a5acc4-2954-4bb8-a5a9-8095384c3c10)
-11.![Screenshot 2025-07-02 at 3 52 29 PM](https://github.com/user-attachments/assets/e1bfc3a3-84ea-468b-9700-845d75f902f0)
 
-12.
+11.![Screenshot 2025-07-02 at 3 52 29 PM](https://github.com/user-attachments/assets/e1bfc3a3-84ea-468b-9700-845d75f902f0)
 
 
 
