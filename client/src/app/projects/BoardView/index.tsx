@@ -168,7 +168,7 @@ const Task = ({ task }: TaskProps) => {
       ref={(instance) => {
         drag(instance);
       }}
-      className={`mb-4 rounded-md bg-white shadow dark:bg-dark-secondary ${
+      className={`mb-4 rounded-md bg-white shadow transition-all duration-300 ease-in-out hover:ring-2 hover:ring-white/40 hover:ring-offset-0 dark:bg-dark-secondary ${
         isDragging ? "opacity-50" : "opacity-100"
       }`}
     >

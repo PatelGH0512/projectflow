@@ -1,27 +1,27 @@
 "use client";
-
+import {
+  FaHome,
+  FaBriefcase,
+  FaSearch,
+  FaCog,
+  FaUser,
+  FaUsers,
+  FaExclamationCircle,
+  FaExclamationTriangle,
+  FaExclamation,
+  FaShieldAlt,
+  FaLayerGroup,
+  FaChevronUp,
+  FaChevronDown,
+  FaLock as FaLockIcon,
+  FaUser as FaUserIcon,
+} from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
 import { useGetAuthUserQuery, useGetProjectsQuery } from "@/state/api";
 import { signOut } from "aws-amplify/auth";
-import {
-  AlertCircle,
-  AlertOctagon,
-  AlertTriangle,
-  Briefcase,
-  ChevronDown,
-  ChevronUp,
-  Home,
-  Layers3,
-  LockIcon,
-  LucideIcon,
-  Search,
-  Settings,
-  ShieldAlert,
-  User,
-  Users,
-  X,
-} from "lucide-react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -58,43 +58,36 @@ const Sidebar = () => {
       {/* HEADER */}
       <div className="flex min-h-[56px] items-center justify-between border-b border-gray-200 px-6 py-3 dark:border-gray-800">
         <div className="text-xl font-bold tracking-wide text-gray-800 dark:text-white">
-          ProjectFlow
+          <Image
+            src="https://s3-projectflow.s3.us-east-1.amazonaws.com/logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+          />
         </div>
         <button
           onClick={() => dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))}
           className="p-1 transition hover:scale-105 hover:text-gray-500 dark:text-white"
         >
-          <X className="h-5 w-5" />
+          <IoClose className="h-5 w-5" />
         </button>
       </div>
 
       {/* TEAM INFO */}
       <div className="flex items-center gap-4 border-b border-gray-200 px-6 py-4 dark:border-gray-800">
-        <Image
-          src="https://s3-projectflow.s3.us-east-1.amazonaws.com/logo.png"
-          alt="Logo"
-          width={40}
-          height={40}
-        />
-        <div>
-          <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-            Devarshi’s Team
-          </h3>
-          <div className="mt-1 flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
-            <LockIcon className="h-3 w-3" />
-            <span>Private</span>
-          </div>
-        </div>
+        <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+          Welcome User
+        </h3>
       </div>
 
       {/* NAVIGATION */}
       <nav className="flex flex-col py-2">
-        <SidebarLink icon={Home} label="Home" href="/" />
-        <SidebarLink icon={Briefcase} label="Timeline" href="/timeline" />
-        <SidebarLink icon={Search} label="Search" href="/search" />
-        <SidebarLink icon={Settings} label="Settings" href="/settings" />
-        <SidebarLink icon={User} label="Users" href="/users" />
-        <SidebarLink icon={Users} label="Teams" href="/teams" />
+        <SidebarLink icon={<FaHome />} label="Home" href="/" />
+        <SidebarLink icon={<FaBriefcase />} label="Timeline" href="/timeline" />
+        <SidebarLink icon={<FaSearch />} label="Search" href="/search" />
+        <SidebarLink icon={<FaCog />} label="Settings" href="/settings" />
+        <SidebarLink icon={<FaUser />} label="Users" href="/users" />
+        <SidebarLink icon={<FaUsers />} label="Teams" href="/teams" />
       </nav>
 
       {/* COLLAPSIBLE PROJECTS */}
@@ -104,13 +97,13 @@ const Sidebar = () => {
           className="flex w-full items-center justify-between px-6 py-3 text-sm font-medium text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
         >
           <span>Projects</span>
-          {showProjects ? <ChevronUp /> : <ChevronDown />}
+          {showProjects ? <FaChevronUp /> : <FaChevronDown />}
         </button>
         {showProjects &&
           projects?.map((project) => (
             <SidebarLink
               key={project.id}
-              icon={Briefcase}
+              icon={<FaBriefcase />}
               label={project.name}
               href={`/projects/${project.id}`}
             />
@@ -124,28 +117,32 @@ const Sidebar = () => {
           className="flex w-full items-center justify-between px-6 py-3 text-sm font-medium text-gray-600 transition hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
         >
           <span>Priority</span>
-          {showPriority ? <ChevronUp /> : <ChevronDown />}
+          {showPriority ? <FaChevronUp /> : <FaChevronDown />}
         </button>
         {showPriority && (
           <>
             <SidebarLink
-              icon={AlertCircle}
+              icon={<FaExclamationCircle />}
               label="Urgent"
               href="/priority/urgent"
             />
             <SidebarLink
-              icon={ShieldAlert}
+              icon={<FaShieldAlt />}
               label="High"
               href="/priority/high"
             />
             <SidebarLink
-              icon={AlertTriangle}
+              icon={<FaExclamationTriangle />}
               label="Medium"
               href="/priority/medium"
             />
-            <SidebarLink icon={AlertOctagon} label="Low" href="/priority/low" />
             <SidebarLink
-              icon={Layers3}
+              icon={<FaExclamation />}
+              label="Low"
+              href="/priority/low"
+            />
+            <SidebarLink
+              icon={<FaLayerGroup />}
               label="Backlog"
               href="/priority/backlog"
             />
@@ -167,7 +164,7 @@ const Sidebar = () => {
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <User className="h-6 w-6 text-gray-600 dark:text-white" />
+                <FaUser className="h-6 w-6 text-gray-600 dark:text-white" />
               )}
             </div>
             <span className="text-sm font-medium text-gray-800 dark:text-white">
@@ -188,11 +185,11 @@ const Sidebar = () => {
 
 interface SidebarLinkProps {
   href: string;
-  icon: LucideIcon;
+  icon: React.ReactNode;
   label: string;
 }
 
-const SidebarLink = ({ href, icon: Icon, label }: SidebarLinkProps) => {
+const SidebarLink = ({ href, icon, label }: SidebarLinkProps) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -208,7 +205,7 @@ const SidebarLink = ({ href, icon: Icon, label }: SidebarLinkProps) => {
         {isActive && (
           <div className="absolute left-0 top-0 h-full w-[4px] bg-blue-500" />
         )}
-        <Icon className="h-5 w-5" />
+        <span className="text-lg">{icon}</span>
         <span>{label}</span>
       </div>
     </Link>
