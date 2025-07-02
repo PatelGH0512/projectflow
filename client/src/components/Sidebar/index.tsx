@@ -61,8 +61,10 @@ const Sidebar = () => {
           <Image
             src="https://s3-projectflow.s3.us-east-1.amazonaws.com/logo.png"
             alt="Logo"
+            sizes="(max-width: 768px) 100px, 120px"
             fill
             className="object-contain"
+            priority
           />
         </div>
 
